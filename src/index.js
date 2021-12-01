@@ -8,4 +8,4 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 server.use(routes);
-server.listen(3001);
+server.listen(process.env.PORT);
