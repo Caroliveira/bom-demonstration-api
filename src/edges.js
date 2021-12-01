@@ -18,7 +18,7 @@ module.exports = {
       const params = { TableName, Key: { id:req.params.id } };
       await docClient.get(params, (err, data) => {
         if(err) throw Error(400);
-        return res.send(data.Item);
+        return res.json(data.Item);
       });
       return;
     } catch (err) {
@@ -31,7 +31,7 @@ module.exports = {
       const params = { TableName, Item: req.body };
       await docClient.put(params, (err, data) => {
         if(err) throw Error(400);
-        return res.send(data);
+        return res.json(data);
       });
       return;
     } catch (err) {
@@ -50,7 +50,7 @@ module.exports = {
       };
       await docClient.update(params, (err, data) => {
         if(err) throw Error(400);
-        return res.send(data.Attributes);
+        return res.json(data.Attributes);
       });
       return;
     } catch (err) {
