@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const edges = require("./edges");
+const projects = require("./projects");
 
-router.get("/edges/:id", edges.findById);
-router.post("/edges", edges.create);
-router.put("/edges/:id", edges.update);
+router.get("/projects/:id", projects.findById);
+router.post("/projects", projects.create);
+router.put("/projects/:id", projects.update);
 
 module.exports = router;

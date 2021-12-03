@@ -44,8 +44,12 @@ module.exports = {
       const params = {
         TableName,
         Key: { id: req.params.id },
-        UpdateExpression: "set edges = :e",
-        ExpressionAttributeValues: { ":e": req.body.edges },
+        UpdateExpression: "set nodes = :n, edges = :e, conversionEdges = :c",
+        ExpressionAttributeValues: { 
+          ":n": req.body.nodes, 
+          ":e": req.body.edges, 
+          ":c": req.body.conversionEdges, 
+        },
         ReturnValues: "UPDATED_NEW",
       };
       await docClient.update(params, (err, data) => {
